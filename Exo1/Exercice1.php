@@ -1,80 +1,80 @@
-<!DOCTYPE html>
-    <html>
-        <head>
-            <title>Exercie 1</title>
-            <meta charset="utf-8"/>
-        </head>
-        <body>
-            <form method="GET">
-                <input type="text" name="a" placeholder="Valeur superieur a 10000"><br><br>
-                <input type="submit" name="submit" value="Envoyer">
-
-
-            </form>
-        </body>
-    </html>
-
 <?php
-
     session_start();
-// c normal dans la parenthèse de session_star y a rien
-    if (isset($_GET['submit'])) {
-        $tab = array();
-        $a = $_GET['a']; 
-            if (!empty($a)) {
-                if (is_numeric($a)) {
-
-                    if ($a>10000) {
-                        echo "les nombres premier compris entre 1 et ".$a. " sont: <br>";
-                            for ($i=2; $i < $a; $i++) {
-                                $np = 0; 
-                                for ($j=2; $j < $i; $j++) { 
-                                    if ($i % $j == 0) {
-                                        $np = 1;
-                                        $j = $i;                                   
-                                    }
-                                }
-                                if ($np==0) {
-                                    $tab=$i;
-                                    // entre les crochets du $_SESSION t'y met ce que tu veux mais le $tab se met apres le signe = par exemple $_SESSION['absa'] = $tab ; compris ?oui maintenant modifie et d'accord
-                                    // n'oublies jamais lorsque tu crées une session elle ne doit pas être vide là elle est vide car elle stocke aucune donnée
-                                   // regarde ce que je vais faire ok
-
-                                    $_SESSION['premier']=$tab;
-                                    var_dump($_SESSION['premier']);
-                                   // echo $tab.' ';
-                                } 
-                            }
-                            $NbrTotal = $tab;
-                            $NbrParPage = 100;
-                            $NbrDePage = ceil($NbrTotal/100);
-                            for ($i=1; $i < $NbrDePage; $i++) { 
-                                echo "<a href=Exercice1.php?page".$i.">".$i."</a>";
-                            }
-                            $Dep = 0;
-                            $page = 1; 
-                            $Fin = $NbrParPage;
-                           
-                            echo "<table border='2'>";
-                            for ($i=$Dep; $i < $Fin ; $i++) { 
-                                    echo "<tr>";
-                                        echo "<td>".$tab[$i]."</td>";
-                                    echo "</tr>";
-                        }
-                            echo "</table>";
-                    }
-                }   
-                    else {
-                        echo "Entrer une valeur superieur a 10000";
-                    }  
-            }
-                else {
-                    echo "Entrer une valeur numerique"; 
-                }
-}
-            else {
-                echo "Donner une valeur";
-            }
-  
-
+    $T=array();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Absa</title>
+    </head>
+    <body>
+        <form method="post" action="">
+            <input type="text" name="a"/>
+            <input type="submit" name="submit" value="Entrer">
+        </form>
+            <?php 
+
+                include('Fonction.php');
+                $y = "reserve";
+                if (isset($_POST['submit'])) {
+                    $a = $_POST['a'];
+                    if (!empty($a)) {
+                        if (preg_match('/^[0-9]+$/',$a)) {
+                            if ($a>1000) {
+                                $a = $_POST['a'];
+                                echo $a;
+                                $T = Npremier($a);
+                               
+                                $_SESSION[$y] = $T;
+                                
+                            }
+                            
+                        }
+                    }
+                }
+
+            ?>
+
+            <?php
+
+                //Pagination
+                if (isset($_SESSION[$y])) {
+                    $Total = sizeof($_SESSION[$y]);
+                    $colonne = 10;
+                    $ligne = 10;
+                    $taillePage = ($colonne*$ligne);
+                    $nbrPage = ceil($Total/$taillePage);
+                    if (isset($_GET['page'])) {
+                        $page_num = $_GET['page'];
+
+                    }
+                    else {
+                        $page_num = 1;
+                    }
+                    //Affichage des nombres premiers
+                    echo '<h2>Les nombres premiers sont : </h2>';
+                    echo'<table style=" float: left; width: 1000px;">';
+                    for ($j=($page_num -1)*100; $j < $page_num*100; $j++) { 
+                        if ($j==$Total) {
+                        break;
+                        }
+                        echo '<tr style="float:left; border: 1px solid black; width: 9%; height:35px;">';
+                        echo '<td style="float:left; text-align:center; width: 100%; font-size:20px; margin-top:8%;">';
+                        echo $_SESSION[$y][$j];
+                        echo '</td></tr>';
+                    }
+                    //Affichage des pages
+                    echo '</table><table>';
+                    echo '<tr style="float: left; min-width: 20%;">';
+                    for ($i=1; $i <= $nbrPage ; $i++) {
+                        echo '<td style="flaot:left; width: 40px; height : 10px; text-align: center;">';
+                        echo "<a href='absa.php?page= ".$i."'>$i</a>";
+                        echo '</td>';
+                    }
+                    echo '</tr></table>';
+                }
+
+            ?>
+    </body>
+</html>
