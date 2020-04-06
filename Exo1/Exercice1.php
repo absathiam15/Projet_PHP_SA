@@ -10,7 +10,7 @@
     </head>
     <body>
         <form method="post" action="">
-            <input type="text" name="a"/>
+            <input type="text" name="a" placeholder="Saisir un nombre > 10000" autocomplete="off">
             <input type="submit" name="submit" value="Entrer">
         </form>
             <?php 
@@ -21,7 +21,7 @@
                     $a = $_POST['a'];
                     if (!empty($a)) {
                         if (preg_match('/^[0-9]+$/',$a)) {
-                            if ($a>1000) {
+                            if ($a>10000) {
                                 $a = $_POST['a'];
                                 echo $a;
                                 $T = Npremier($a);
@@ -74,6 +74,22 @@
                     }
                     echo '</tr></table>';
                 }
+                $tab = [];
+                $T = array( 'Inferieur'=> [],
+                'Superieur'=>[]);
+               $moyenne = array_sum($tab) / count($tab);
+               echo $moyenne;
+                    for ($i=0; $i < count($tab); $i++) { 
+                        if ($tab[$i] > $moyenne) {
+                            $T['Superieur']=$tab[$i];
+                           var_dump($T['Superieur']);
+                        }
+                        if ($tab[$i] < $moyenne) {
+                            $T['Inferieur']=$tab[$i];
+                            # code...
+                            var_dump($T['Inferieur']);
+                        }
+                    }
 
             ?>
     </body>
