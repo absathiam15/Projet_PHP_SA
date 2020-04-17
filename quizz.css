@@ -1,0 +1,400 @@
+/* La partie index contenant le header et le content */
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.header {
+    height: 100px;
+    background: #090625;
+}
+.logo {
+    float: left;
+    background-image: url(../Images/logo.jpeg);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    height: 90%;
+    width: 5%;
+    margin-left: 1%;
+}
+.header-text {
+    float: left;
+    color: #ffffff;
+    margin-top: 2%;
+    margin-left: 33%;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-size: 40px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-weight: bold;
+}
+.content {
+    background-image: url(../Images/img-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 650px;
+}
+
+/* Partie concernant la page connexion */
+
+.connexion {
+    float: left;
+    width: 50%;
+    height: 450px;
+    background: #ffffff;
+    margin-left: 25%;
+    margin-top: 6%;
+    border-radius: 5px;
+}
+.headerr {
+    width: 100%;
+    height: 20%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #45b4d6;
+}
+.title {
+    float: left;
+    width: 20%;
+    height: 40%;
+    margin-left: 1.5%;
+    margin-top: 4%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-size: 25px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-weight: bold;
+}
+
+/* Partie concernant les inputs et logos ainsi que les champs d'erreur */
+
+.input-form {
+    float: left;
+    margin-left: 5%;
+    width: 90%;
+    height: 70px;
+    margin-top: 5%;
+    background: #e6e6e6;
+}
+.control {
+    float: left;
+    width: 85%;
+    margin-top: 1.5%;
+    margin-left: 3%;
+    height: 47px;
+    border: 0px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-size: 25px;
+    background: #e6e6e6;
+    color: #949494;
+}
+.icone1 {
+    float: right;
+    background-image: url(../Icônes/ic-login.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 5%;
+    margin-top: 2%;
+    height: 40px;
+    width: 40px;
+}
+.icone2 {
+    float: right;
+    background-image: url(../Icônes/ic-password.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 5%;
+    margin-top: 2%;
+    height: 40px;
+    width: 40px;
+}
+.error {
+    float: left;
+    width: 100%;
+    margin-top: 1%;
+    height: 15px;
+    font-size: 30px;
+    color: blue;
+    font-weight: bold;
+   
+}
+span {
+    float: left;
+    margin-left: 1%;
+    width: 40%;
+    height: 30px;
+    background: red;
+}
+
+/* Partiez concernant le bouton de connexion et le lien d'inscription */
+
+button {
+    float: left;
+    width: 20%;
+    height: 50px;
+    margin-left: 5%;
+    margin-top: 7%;
+    border-radius: 7px;
+    border: 0px;
+    background: #45b4d6;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;-size: 20px;
+}
+.inscription {
+    float: left;
+    width: 32.5%;
+    height: 8%;
+    margin-left: 5%;
+    margin-top: 8.2%;
+}
+.inscription a {
+    text-decoration: none;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-size: 28px;
+    color: #949494;
+}
+
+/* Interface de l'admin */
+
+/* Entete */
+
+.cadre {
+    float: left;
+    width: 98%;
+    height: 98%;
+    background: #c4c4c4;
+    margin-left: 1%;
+    margin-top: 0.5%;
+    border-radius: 3px;
+}
+.entete {
+    float: left;
+    width: 100%;
+    height: 20%;
+    background: #45b4d6;
+}
+.texte {
+    float: left;
+    width: 77.5%;
+    height: 100%;
+    margin-left: 8%;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;-size: 38px;
+    line-height: 55px;
+}
+.button {
+    float: left;
+    width: 11%;
+    height: 40%;
+    margin-left: 0.5%;
+    margin-top: 2.5%;
+    border-radius: 10px;
+    font-size: 20px;
+    background: #1b81b1;
+    color: #ffffff;
+}
+
+/* Partie concernant l'image de l'admin et les onglets */
+
+.menu {
+    float: left;
+    width: 30%;
+    height: 65%;
+    margin-left: 2%;
+    margin-top: 3%;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.avatar {
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top,#45b4d6,#45b4d6,#ffffff);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.image {
+    float: left;
+    width: 30%;
+    height: 70%;
+    border-radius: 70%;
+    border: 4px solid #ffffff;
+    margin-left: 7%;
+    margin-top: 5%;
+}
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 70%;
+}
+.prenom {
+    float: left;
+    width: 40%;
+    height: 20%;
+    margin-left: 5%;
+    margin-top: 11%;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.nom {
+    float: left;
+    width: 40%;
+    height: 20%;
+    margin-left: 18%;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Partie concernant les onglets */
+
+.onglet {
+    float: left;
+    width: 100%;
+    height: 13%;
+    margin-bottom: 2%;
+}
+.textee {
+    float: left;
+    width: 50%;
+    height: 60%;
+    font-size: 30px;
+    margin-left: 5%;
+    margin-top: 2.2%;
+    color: #949494;
+}
+.icone {
+    float: right;
+    width: 8%;
+    height: 70%;
+    margin-top: 2%;
+    margin-right: 3%;
+}
+.icone img {
+    width: 100%;
+    height: 100%;
+}
+.nbr-de-question{
+    width: 100%;
+    height: 60px;
+    border: 1px solid red;
+}
+.text-qestion{
+    color: grey;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+.interface{
+    border: 1px solid black;
+    width: 65%;
+    height: 470px;
+    float: right;
+    position: relative;
+    margin-right: 20px;
+    top: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+.boutton-OK{
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 40%;
+    top: 5%;
+}
+.input-number{
+    width: 5%;
+    height: 40px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    float: right;
+}
+.inscrire{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.proposer{
+    font-size: 15px;
+    top: 2px;
+    margin-left: 25px;
+}
+input{
+    float: left;
+    margin-left: 25px;
+    width: 60%;
+    height: 30px;
+    margin-top: 1%;
+    background: #e6e6e6;
+    border: 2px ridge;
+    border-radius: 10px;
+}
+.prenom{
+    float: left;
+    font-size: 13px;
+    color: black;
+    width: 50%;
+    height: 4%;
+    margin-top: 1%;
+}
+form{
+    float: left;
+    width: 60%;
+    height: 90%;
+    margin-top: 10px;
+}
+.choisir-fichier{
+    font-size: 11px;
+    width: 35%;
+    height: 25px;
+    float: right;
+    margin-left: 40%;
+}
+.Créer-compte{
+    font-size: 15px;
+    width: 22%;
+    height: 40px;
+    margin-bottom: 1px;
+}
+.avat{
+    width: 60%;
+    height: 30px;
+    margin-top: 320px;
+    display: block;
+  
+}
+.avatarrr{
+    font-size: 18px;
+    font-weight: 10px;
+    margin-left: 20px;
+}
+.photo{
+    border-radius: 200px;
+    width: 18%;
+    height: 150px;
+    float: right;
+    border: 5px solid black;
+    margin-bottom: 300px;
+    margin-right: 100px;
+}
+.avatar-admin{
+    text-align: right;
+    color: black;
+    margin-top: 160px;
+    margin-left: 20px;
+    font-size: 15px;
+}
