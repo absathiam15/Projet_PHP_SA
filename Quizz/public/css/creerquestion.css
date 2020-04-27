@@ -1,0 +1,124 @@
+.parametre-quest{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 4%;
+    color: #45b4d6;
+}
+.cadre-question{
+    width: 70%;
+    height: 80%;
+    border: 2px solid #45b4d6;
+    margin-left: 15%;
+    border-radius: 5px;
+}
+.input-quest{
+    float: left;
+    width: 100%;
+    height: 12%;
+    margin: 2px;
+    background-color: white;
+}
+.questions{
+    font-size: 18px;
+    font-weight: bold;
+    float:left;
+    margin-left: 20px;
+    margin-top: 4%;
+}
+.input-questions{
+    margin-left: 30%;
+    height: 70px;
+    width: 78%;
+    box-shadow: 1px 1px #45b4d6;
+    border-radius: 0;
+    margin-top: -13%;
+    background-color: white;
+
+}
+.input-nombre{
+    float: left;
+    width: 100%;
+    height: 12%;
+    margin-top: 8%;
+}
+.nombre{
+    font-size: 18px;
+    font-weight: bold;
+    float:left;
+    margin-left: 20px;
+    margin-top: 5%;
+}
+.input1{
+    margin-left: 1%;
+    height: 40px;
+    width: 11%;
+    box-shadow: 1px 1px #45b4d6;
+    border-radius: 0;
+    margin-top: 2%;
+    background-color: white;
+}
+button{
+    float: right;
+    margin-top: 39%;
+    font-size: 14px;
+    font-weight: bold;
+    width: 90px;
+    height: 30px;
+    margin-right: -28%;
+    box-shadow: 1px 1px #45b4d6;
+    background-color: darkturquoise;
+}
+select{
+    width: 91%;
+    height: 40px;
+    background-color: white;
+    float: left;
+    margin-left: 46%;
+    margin-top: -7%;
+    box-shadow: 1px 1px #45b4d6;
+}
+.type-reponse{
+    font-size: 18px;
+    font-weight: bold;
+    float:left;
+    margin-left: 20px;
+    margin-top: 10%;
+}
+.btn{
+    box-shadow: 1px 1px #45b4d6;
+    background-color: darkturquoise;
+    margin-top: -7%;
+    width: 42px;
+    margin-left: 15%;
+    float: right;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    height: 40px;
+}
+.btn1{
+    width: 9%;
+    height: 100%;
+    position: relative;
+    margin-top: 3%;
+    margin-left: -7%;
+    background-color: white;
+}
+.btn1 img{
+    width: 100%;
+    height: 100%;
+}
+.inuput-sup{
+  
+}
+.input-suprimmer{
+    width: 90%;
+    height: 27px;
+    background-color: white;
+    float: left;
+    margin-left: 46%;
+    margin-top: 2%;
+    box-shadow: 1px 1px #45b4d6;
+    border-radius: 0;
+}
