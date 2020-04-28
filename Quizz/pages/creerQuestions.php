@@ -29,8 +29,9 @@
                             <option value="v1">Choix simple</option>
                             <option value="v1">Choix multiple</option>
                     </select>
-                    <div id="i nputs">
+                    <div id="Inputs">
                         <button type="button" class="btn" onclick="onAddInput()">+</button>
+
                        
                     </div>  
                     <button type="submit" class="enregistrer">Enregistrer</button>
@@ -39,25 +40,22 @@
 
            <script>
                 var nbrRow = 0;
-               function onAddInput(){
+              function onAddInput(){
                 nbrRow++;
-                var divInputs = document.getElementById('Inputs');
-                var newInput = document.createElement('div');
-                newInput.setAttribute('class','inuput-sup');
+                var divInputs = document.getElementById('Inputs')
+                var newInput =document.createElement('div');
                 newInput.setAttribute('id','row_'+nbrRow);
                 newInput.innerHTML = `
-                            <input type="text" class="input-suprimmer">
-                            <button type="button" class="btn1" onclick="onDeleteInput(${nbrRow})"><img src="./public/Icônes/ic-supprimer.png" ></button>
+                    <input type="text" class="input-suprimmer">
+                    <button type="button" class="btn1" onclick="onDeleteInput(${nbrRow})"><img src="./public/Icônes/ic-supprimer.png" ></button>
                 `;
-
                 divInputs.appendChild(newInput);
-               }
-               
-               function onDeleteInput(n){
-                   let target = document.getElementById(elementId: 'row_'+n);
-                   target.remove();
-               }
-
+              }
+              
+              function onDeleteInput(n){
+                  var target = document.getElementById('row_'+n);
+                  target.remove();
+              }
            </script>
 
         </div>
