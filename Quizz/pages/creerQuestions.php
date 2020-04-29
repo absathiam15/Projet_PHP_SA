@@ -21,13 +21,13 @@
                         <div class="input-nbr"><input type="number" name="questions" class="input1"></div>
                     </div>
                     <div class="input-quest1">
-                    
+                     
                         <div class="type-reponse">Type de réponse</div>
-                    <select name="" id="">
+                    <select name="" id="select" name="choice" onchange="myChoice()">
                             <option value="v1">Donner le type de réponse</option>
-                            <option value="v1">Text</option>
-                            <option value="v1">Choix simple</option>
-                            <option value="v1">Choix multiple</option>
+                            <option value="text">Text</option>
+                            <option value="simple">Choix simple</option>
+                            <option value="multiple">Choix multiple</option>
                     </select>
                     <div id="Inputs">
                         <button type="button" class="btn" onclick="onAddInput()">+</button>
@@ -51,7 +51,35 @@
                 `;
                 divInputs.appendChild(newInput);
               }
-              
+              var select= document.getElementById("select");
+              if (select.options[select.selectedIndex].value==="simple") {
+                newInput.innerHTML = `<label> Text Reponse </label> <br>
+                    <input type="text" name="text" class="newInputform" value="response${nbrRow}"/> 
+                    <input type="radio" name="radio" class="checkbox" value="response${nbrRow}"/> 
+                    <button type="button" onclick="onDeleteInput(${nbrRow})"><img src="./public/Icônes/ic-supprimer.png" ></button>
+
+                `;
+                divInputs.appendChild(newInput);
+
+              }else if (select.options[select.selectedIndex].value==="multiple") {
+                newInput.innerHTML = `<label> Text Reponse </label> <br>
+                    <input type="text" name="text" class="newInputform" value="response${nbrRow}"/> 
+                    <input type="checkbox" name="checkbox" class="checkbox" value="response${nbrRow}"/> 
+                    <button type="button" onclick="onDeleteInput(${nbrRow})"><img src="./public/Icônes/ic-supprimer.png" ></button>
+
+                `;
+              }else{
+                newInput.innerHTML = `<label> Text Reponse </label> <br>
+                    <input type="text" name="text" class="newInputform" value="response${nbrRow}"/> 
+                    <button type="button" onclick="onDeleteInput(${nbrRow})"><img src="./public/Icônes/ic-supprimer.png" ></button>
+
+                `;
+              }
+
+              let valeur=document.getElementById(elementId: "valeur");
+              valeur.setAttribute(qualifiedName: "value", value: "${nbrRow}")
+              nbrRow++;
+
               function onDeleteInput(n){
                   var target = document.getElementById('row_'+n);
                   target.remove();
