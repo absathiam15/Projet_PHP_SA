@@ -1,69 +1,62 @@
 <?php
-   
+    $nbr_points = "";
+    $num_input = 0;
+    $reponse=[];
+    $validResponse=[];
+    $num_input = count($_POST)-5 ;
+    var_dump($num_input);
+
     if (isset($_POST['submit'])) {
         $nbr_points  = $_POST['nbr_points'];
         $choix = $_POST['choice'];
         $questions = $_POST['questions'];
-        $bonne_reponse = [];
-        $reponse_possible = [];
-
-        if ($choix === 'text') {
-            $bonne_reponse[] = $_POST['rep[]'];
-        }
-        else if ($choix === 'simple') {
-            $reponse_possible[] = $_POST['rep[]'];
-
-                if ($questions == $_POST['rep[]']) {
-                    $data = json_encode($data);
-                    file_get_contents('./data/questions.json', $data);
-                }
-        }
         
-            $data = file_get_contents('./data/questions.json');
-            $data = json_decode($data, true);
-            $tab = [];
-            $tab['questions'] = $_POST['questions'];
-            $tab['nbr_points'] = $_POST['nbr_points'];
+        for ($i=1;$i<=$num_input;$i++){
+             if ($choix=="texte"){
+            $reponse[]= $_POST['rep'.$i];
+            $validResponse[]=$_POST['rep'.$i];
+           
+        }else {
+            $reponse[]= $_POST['rep'.$i];
+        }
+       
+        }
 
-            if ($choix === 'text') {
-                $tab['choice'] = 'text';
-                $tab['reponse'] = $_POST['rep[]'];
-                $data[] = $tab;
-                $data = json_encode($data);
-                file_get_contents('./data/questions.json', $data);
-            }
-            else if ($choix === 'simple') {
-               $dat['type'] = "simple";
-                $i=1; 
-                $reponse = []; 
-                while(isset($_POST['text'.$i]))
-                {
-                    if(isset($_POST['radio'.$i]))
-                    {
-                        $reponse['valeur'] = $_POST['texte'.$i];
-                        $reponse['valide']="oui";
-                    }
-                    else
-                    {
-                        $reponse['valeur']=$_POST['texte'.$i];
-                        $reponse['valide']="non";
-                    }
-                    $dat['reponse'][]=$reponse;
-                    $i++;
+        for ($i=1; $i<= $num_input;$i++){
+            if (isset($_POST['checkbox'.$i])){
+                $validResponse[]= $_POST['rep'.$i];
+            }elseif (isset($_POST['radio'])){
+                if ($_POST['radio']== "rep".$i){
+                    $validResponse[]= $_POST['rep'.$i];
                 }
-                $dat['point']=$points;
-                $data[]=$dat;
-                $data=json_encode($data);
-                file_put_contents("./data/question.json",$data); 
             }
-            
-        
+        }
     }
+       
 
+    $data = file_get_contents('./data/questions.json');
+    $data =  json_decode($data, true);
+
+   
+    
+    if ($nbr_points >= 1) {
+        $tab_questions = array(
+            "question" => $questions,
+            "nbr_points" => $nbr_points,
+            "choice" => $choix,
+            "reponse" => $reponse,
+            "reponses_valides" => $validResponse
+        );
+        $data[] = $tab_questions;
+        $data = json_encode($data);
+        file_put_contents('./data/questions.json', $data);
+       
+    }
+    
 ?>
 
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -104,36 +97,34 @@
                     <div id="Inputs">
                     
                     </div>
-                    <button type="submit" class="enregistrer">Enregistrer</button>
+                    <button type="submit" class="enregistrer" name="submit">Enregistrer</button>
                     
            </form>
+           
+           
             <script>
-            document.getElementById("form-question").addEventListener("submit",function(e) {
+                            document.getElementById("form-question").addEventListener("submit",function(e) {
 
-const fields = document.getElementsByClassName("erreur");
-var err = false
-for (let area of fields) {
-    if (area.hasAttribute("err")) {
-        var idDivError = area.getAttribute("err")
-        if(!area.value) {
-            document.getElementById(idDivError).innerText = "Champ obligatoire !"
-            err = true
-        }
-    }
-}
-if (err) {
-    e.preventDefault();
-    return false
-}
-})
+                const fields = document.getElementsByClassName("erreur");
+                var err = false
+                for (let area of fields) {
+                    if (area.hasAttribute("err")) {
+                        var idDivError = area.getAttribute("err")
+                        if(!area.value) {
+                            document.getElementById(idDivError).innerText = "Champ obligatoire !"
+                            err = true
+                        }
+                    }
+                }
+                if (err) {
+                    e.preventDefault();
+                    return false
+                }
+                })
+
             </script>
            <script  src="public/js/creerQuest.js"></script>
            
-          
-          
-
-          
-
         </div>
 
         
