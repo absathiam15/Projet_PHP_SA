@@ -1,43 +1,47 @@
 <?php
-    $nbr_points = "";
-    $num_input = 0;
-    $reponse=[];
-    $validResponse=[];
-    $num_input = count($_POST)-5 ;
-    var_dump($num_input);
-
+   
+    $reponse=['choice' => array()];
+    
+    $validResponse=['choice' => array()];
+        
+    $i=1;
+    
     if (isset($_POST['submit'])) {
         $nbr_points  = $_POST['nbr_points'];
         $choix = $_POST['choice'];
         $questions = $_POST['questions'];
         
-        for ($i=1;$i<=$num_input;$i++){
-             if ($choix=="texte"){
-            $reponse[]= $_POST['rep'.$i];
-            $validResponse[]=$_POST['rep'.$i];
-           
-        }else {
-            $reponse[]= $_POST['rep'.$i];
-        }
-       
-        }
-
-        for ($i=1; $i<= $num_input;$i++){
-            if (isset($_POST['checkbox'.$i])){
-                $validResponse[]= $_POST['rep'.$i];
-            }elseif (isset($_POST['radio'])){
-                if ($_POST['radio']== "rep".$i){
-                    $validResponse[]= $_POST['rep'.$i];
+        if ($choix === "multiple"){
+            while (isset($_POST['rep'.$i])) {
+                array_push($reponse['choice'], $_POST['rep'.$i]);
+                if (!empty($_POST['checkbox'.$i])){
+                array_push($validResponse['choice'], $_POST['rep'.$i]);
                 }
+                $i++;
             }
         }
+        else if ($choix === "simple"){
+            while (isset($_POST['rep'.$i])) {
+                array_push($reponse['choice'], $_POST['rep'.$i]);
+                if (!empty($_POST['radio'.$i])){
+                    array_push($validResponse['choice'], $_POST['rep'.$i]);
+                }
+                $i++;
+            }
+        }
+                   
+           
+        if ($choix =="text"){
+            if (isset($_POST['rep'.$i])) {
+                $reponse[] = $_POST['rep'.$i];
+                array_push($reponse['choice'], $_POST['rep'.$i]);
+            }   
+        }
+    
     }
        
-
     $data = file_get_contents('./data/questions.json');
-    $data =  json_decode($data, true);
-
-   
+    $data =  json_decode($data, true); 
     
     if ($nbr_points >= 1) {
         $tab_questions = array(
@@ -103,7 +107,8 @@
            
            
             <script>
-                            document.getElementById("form-question").addEventListener("submit",function(e) {
+            
+                document.getElementById("form-question").addEventListener("submit",function(e) {
 
                 const fields = document.getElementsByClassName("erreur");
                 var err = false
