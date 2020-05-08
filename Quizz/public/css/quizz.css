@@ -334,9 +334,9 @@ span {
 input{
     float: left;
     margin-left: 39px;
-    width: 2%;
-    height: 15px;
-    margin-top: 0%;
+    width: 6%;
+    height: 17px;
+    margin-top: 2%;
     background: #e6e6e6;
     border: 2px ridge;
     border-radius: 10px;
@@ -659,7 +659,7 @@ th{
     width: 97px;
     height: 34px;
     color: white;
-    border: 2px solid #45b4d6;
+    border: 2px solid grey;
     border-radius: 5px;
     margin-right: 41px;
     margin-top: 10px;
@@ -678,7 +678,7 @@ th{
     border-radius: 5px;
     margin-left: 47px;
     margin-top: 10px;
-    background-color: darkturquoise;
+    background-color: grey;
 }
 .precedant1 a{
     text-decoration: none;
@@ -687,10 +687,11 @@ th{
     font-weight: bold;
 }
 .pagination2{
-    width: 61%;
+    width: 95%;
     height: 50px;
     margin-left: 5%;
     float: left;
+    margin-top: 14%;
 }
 .Qjoueur{
     border-radius: 3px;
@@ -708,4 +709,23 @@ th{
     background-color: #faf6f6;
     margin: 2%;
     margin-left: 34%;
+}
+.aff-quest{
+    font-size: 27px;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: -3%;
+    margin-top: 2%;
+    text-align: center;
+}
+.aff-radio-checkbox{
+    margin-top: 4%;
+    margin-left: 20%;
+    font-size: 30px;
+    font-weight: bold
+    width: 50%;
+    height: 117px;
+}
+.check{
+    
 }
