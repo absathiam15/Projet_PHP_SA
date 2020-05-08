@@ -39,47 +39,52 @@
     <div class="fonds">
         <div class="question">
             <div class="Qjoueur">
-                <?php
-                    foreach ($data as $key => $value) {
-                        if ($key >=$IndiceDepart && $key <=$IndiceFin) {
-                            echo ($key+1).".".$value['question']."</br>";
-                ?>
-            </div>
+                <div class="compteur-question"></div>
+                        <div class="aff-quest">
+                        <?php
+                            foreach ($data as $key => $value) {
+                                if ($key >=$IndiceDepart && $key <=$IndiceFin) {
+                                    echo ($key+1).".".$value['question']."</br>";
+
+                        ?>
+                        </div>
+                </div>
+
+                <div class="aff-radio-checkbox">
                 <?php
                             //CHOIX MULTIPLE
                             if ($value['choice'] === "multiple") {
                             foreach ($value['reponse']['choice'] as $val) {
-                                echo "<input type ='checkbox' name='checkbox'/>".$val."</br>";
-                                
+                                echo "<input type ='checkbox' name='checkbox' class='ckeck'>".$val."</br>";    
                             }
                             }
                             elseif ($value['choice'] === "simple") {
                             foreach ($value['reponse']['choice'] as $val) {
-                                echo "<input type='radio' name='radio'/>".$val."</br>";
+                                echo "<input type='radio' name='radio' class='rad'>".$val."</br>";
                             }
                             }
                             elseif ($value['choice'] === "text") {
                             echo "<input type='text' readonly='readonly'/></br>";
-                            }
+                            }         
                   
                         }      
                     }
                 ?>
-                <!--<div class="compteur-question"></div>-->
 
+                </div>
 
-            
-<?php
-
- 
-    
-    //    if(isset($data)){
-            
-              
-//        }    
-
-            ?>
+                <div class="pagination2">
+   <?php
+   if($pageActuelle>1){
+   echo "<button class='precedant1' bouton><a href='index.php?lien=jeux&page=".($pageActuelle-1)."'>PRECEDANT</a></button>";
+   } 
+   if($NbrePages>$pageActuelle){
+   echo "<button class='suivant1' bouton><a href='index.php?lien=jeux&page=".($pageActuelle+1)."'>SUIVANT</a></button>";
+   }
+   ?>         
+</div>
         </div>
+
 
         <div class="score">
             <a class="top" href="index.php?lien=jeux&bloc=topscore"> <div class="topp"> Top scores </div> </a>
@@ -100,16 +105,7 @@
             </div> 
         </div>
 
-        <div class="pagination2">
-   <?php
-   if($pageActuelle>1){
-   echo "<button class='precedant1' bouton><a href='index.php?lien=jeux&page=".($pageActuelle-1)."'>PRECEDANT</a></button>";
-   } 
-   if($NbrePages>$pageActuelle){
-   echo "<button class='suivant1' bouton><a href='index.php?lien=jeux&page=".($pageActuelle+1)."'>SUIVANT</a></button>";
-   }
-   ?>         
-</div>
+  
     </div>
     
 </div>
